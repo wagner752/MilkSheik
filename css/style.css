@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #cec2ac; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #8b4f29;
+    z-index: 1030; /* Certifica que a navbar está acima de outros elementos */
+    height: 9%;
+    display: flex; /* Ajusta para alinhamento interno */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+
+.navbar-nav {
+    display: flex;
+    flex-direction: column; /* Deixa os links em uma coluna */
+    align-items: flex-end; /* Alinha os links à direita */
+}
+
+.navbar-dark .nav-link {
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 1.5rem;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    white-space: nowrap;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #ddd; /* Efeito hover nos links */
+}
+
+.hero-section {
+    height: 50vh; /* Metade da altura do navegador */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #cec2ac; /* Fundo da seção inicial */
+    text-align: center;
+}
+
+.hero-logo {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 1rem;
+    border-radius: 10px; /* Suaviza as bordas da imagem */
+}
+
+.StatusLoja {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    color: white;
+    margin-top: 1rem;
+    text-align: center;
+    width: fit-content;
+}
+
+.product-card {
+    flex: 0 0 calc(33.33% - 1rem); /* 3 produtos por vez */
+    background-color: #F8EACF;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.product-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.product-card .price {
+    font-size: 1.1rem;
+    color: #000000;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.product-card button {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, #BD7D55 0%, #bd7d55b9 100%);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #000000;
+}
+
+/* Estilo dos cartões de produto */
+.product-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: #BD7D55;
+}
+
+.product-card img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border: 1px solid black;
+}
+
+/* Input de quantidade */
+.product-card .quantity-input {
+    width: 35px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.product-card .tamanho-input{
+    width: 35px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
+}
+
+
+.cart-items-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.cart-items-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-items-list li button {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+
+.cart-section {
+    position: fixed; /* Fixado na tela */
+    bottom: 1rem; /* Distância do rodapé */
+    right: 1rem; /* Distância da lateral direita */
+    width: 300px; /* Largura padrão */
+    background-color: #ffffff; /* Cor de fundo */
+    border: 1px solid rgb(0, 0, 0); /* Borda */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 8px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+    color: black; /* Cor do texto */
+    font-size: 0.7rem;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+#cart-container.collapsed {
+    max-height: 60px;
+    overflow: hidden;
+}
+
+#cart-content {
+    transition: all 0.3s ease;
+}
+
+.cart-section h3{
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.cart-items-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.cart-items-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-items-list li button {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+/* Botões de limpar e finalizar */
+#clear-cart, #finalize-cart {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Mensagem quando o carrinho está vazio */
+.cart-items-list li {
+    text-align: center;
+}
+
+.preferidosSheik{
+    background-image: url(../img/Perfume\ Feminino.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+}
+
+.preferidosSheik .container {
+    display: flex;
+    justify-content: center;  /* Centraliza o conteúdo */
+    flex-wrap: wrap;  /* Permite que os itens se movam para a próxima linha, se necessário */
+    gap: 20px;  /* Espaço entre os itens */
+    
+}
+
+.preferidosSheik h2{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #BD7D55;
+    font-size: 7rem;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+.linhaKids .container {
+    display: flex;
+    justify-content: center;  /* Centraliza o conteúdo */
+    flex-wrap: wrap;  /* Permite que os itens se movam para a próxima linha, se necessário */
+    gap: 20px;  /* Espaço entre os itens */ 
+}
+
+.linhaKids{
+    background-image: url(../img/Perfume\ Masculino.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: top;
+}
+
+.linhaKids h2{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #BD7D55;
+    font-size: 7rem;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+.sheikAlcoolico .container {
+    display: flex;
+    justify-content: center;  /* Centraliza o conteúdo */
+    flex-wrap: wrap;  /* Permite que os itens se movam para a próxima linha, se necessário */
+    gap: 20px;  /* Espaço entre os itens */
+}
+
+.sheikAlcoolico{
+    background-image: url(../img/Modelo.png);
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: top;
+}
+
+.sheikAlcoolico h2{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #BD7D55;
+    font-size: 7rem;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+.product-card {
+    flex: 1 1 22%;  /* Ajusta a largura para ter 4 itens por linha */
+    box-sizing: border-box;  /* Garante que o padding e margin não afetam o tamanho total */
+}
+
+.rodape{
+    background-color: #8b4f29;
+}
+
+.rodape h5{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #BD7D55;
+    font-size: 3rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.rodape .bi-instagram {
+    font-size: 4rem; /* Tamanho do ícone */
+    background-color: white; /* Fundo branco */
+    color: transparent; /* Torna o texto transparente para o degradê */
+    background-image: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4); /* Degradê Instagram */
+    -webkit-background-clip: text; /* Clip de fundo para o texto */
+    -webkit-text-fill-color: transparent; /* Preenche o texto com o degradê */
+    display: inline-block;
+    width: 80px; /* Largura do quadrado */
+    height: 80px; /* Altura do quadrado */
+    text-align: center; /* Centraliza o ícone dentro do fundo */
+    line-height: 80px; /* Alinha verticalmente o ícone */
+}
+
+.rodape .bi-whatsapp{
+    color: rgb(26, 236, 64);
+}
+
+@media (max-width: 768px) {
+    .navbar img{
+        max-width: 15% !important;
+    }
+
+    .custom-toggler {
+        border: 3px solid rgb(255, 255, 255); /* Borda ajustada para a caixinha */
+        border-radius: 5px; /* Bordas arredondadas */
+        padding: 1px; /* Espaçamento interno */
+        height: 40px; /* Define a altura da caixinha */
+        width: 39px; /* Define a largura da caixinha */
+        display: flex;
+        margin-top: -16%;
+    }
+    
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+    
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro ao expandir */
+        padding: 10px; /* Espaçamento interno */
+        position: absolute; /* Garante que fique abaixo do botão */
+        right: 0; /* Alinha os links à direita */
+        top: 100%; /* Posiciona abaixo do botão */
+        width: 100%; /* Ajusta largura para caber os links */
+    }
+
+    .cart-section {
+        bottom: 0; /* Alinha na parte inferior da tela */
+        right: 0; /* Remove a distância lateral */
+        width: 100%; /* Ocupa 100% da largura */
+        border-radius: 0; /* Remove as bordas arredondadas */
+        padding: 10px; /* Reduz o espaçamento interno */
+        border: none; /* Remove bordas */
+        box-shadow: none; /* Remove sombra para um design plano */
+    }
+
+    .product-card  {
+        flex: 0 0 100%; /* Exibe apenas 1 produto por vez */   
+    }
+
+    .add-to-cart-btn{
+        width: 50%;
+        font-size: 0.5rem;
+    }
+
+    .preferidosSheik{
+        background-image: none;
+        background-color: #CEC2AC;
+    }
+
+    .preferidosSheik h2{   
+        font-size: 4rem;
+    }
+    .preferidosSheik .product-card{
+    flex: 1 1 30%; /* 3 produtos por vez */
+    background-color: #F8EACF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .linhaKids{
+        background-image: none;
+        background-color: #CEC2AC;
+    }
+
+    .linhaKids h2{   
+        font-size: 4rem;
+    }
+
+    .linhaKids .product-card{
+    flex: 1 1 30%; /* 3 produtos por vez */
+    background-color: #F8EACF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .sheikAlcoolico{
+        background-image: none;
+        background-color: #CEC2AC;
+    }
+
+    .sheikAlcoolico h2{   
+        font-size: 3.5rem;
+    }
+
+    .sheikAlcoolico .product-card{
+    flex: 1 1 30%; /* 3 produtos por vez */
+    background-color: #F8EACF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
